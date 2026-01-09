@@ -68,6 +68,32 @@ const App = {
                 MassConverter.convert();
             });
         }
+
+        // Average Calculator
+        const avgCalcBtn = document.getElementById('avg-calc-btn');
+        const avgClearBtn = document.getElementById('avg-clear-btn');
+        if (avgCalcBtn) {
+            avgCalcBtn.addEventListener('click', () => AverageCalc.calculate());
+        }
+        if (avgClearBtn) {
+            avgClearBtn.addEventListener('click', () => AverageCalc.clear());
+        }
+
+        // Number Sorter
+        const sortBtn = document.getElementById('sort-btn');
+        const sortClearBtn = document.getElementById('sort-clear-btn');
+        if (sortBtn) {
+            sortBtn.addEventListener('click', () => NumberSorter.sort());
+        }
+        if (sortClearBtn) {
+            sortClearBtn.addEventListener('click', () => NumberSorter.clear());
+        }
+
+        // Biggest Number
+        const bigBtn = document.getElementById('big-btn');
+        if (bigBtn) {
+            bigBtn.addEventListener('click', () => BiggestNumber.find());
+        }
     }
 };
 
@@ -185,6 +211,88 @@ const MassConverter = {
 
         // Clean up floating point errors
         document.getElementById('msc-result').value = parseFloat(finalResult.toFixed(6));
+    }
+};
+
+const AverageCalc = {
+    calculate: function () {
+        const n1 = parseFloat(document.getElementById("avg-num1").value);
+        const n2 = parseFloat(document.getElementById("avg-num2").value);
+        const n3 = parseFloat(document.getElementById("avg-num3").value);
+        const n4 = parseFloat(document.getElementById("avg-num4").value);
+
+        if (isNaN(n1) || isNaN(n2) || isNaN(n3) || isNaN(n4)) {
+            document.getElementById("avg-result").value = "Enter all numbers";
+            return;
+        }
+
+        const sum = n1 + n2 + n3 + n4;
+        const ave = sum / 4;
+        document.getElementById("avg-result").value = parseFloat(ave.toFixed(4));
+    },
+    clear: function () {
+        document.getElementById("avg-num1").value = "";
+        document.getElementById("avg-num2").value = "";
+        document.getElementById("avg-num3").value = "";
+        document.getElementById("avg-num4").value = "";
+        document.getElementById("avg-result").value = "";
+    }
+};
+
+const NumberSorter = {
+    sort: function () {
+        const n1 = parseFloat(document.getElementById("sort-num1").value);
+        const n2 = parseFloat(document.getElementById("sort-num2").value);
+        const n3 = parseFloat(document.getElementById("sort-num3").value);
+        const order = document.getElementById("sort-order").value;
+
+        if (isNaN(n1) || isNaN(n2) || isNaN(n3)) {
+            document.getElementById("sort-result").value = "Enter all numbers";
+            return;
+        }
+
+        let numbers = [n1, n2, n3];
+        if (order === "asc") {
+            numbers.sort((a, b) => a - b);
+        } else {
+            numbers.sort((a, b) => b - a);
+        }
+        document.getElementById("sort-result").value = numbers.join(", ");
+    },
+    clear: function () {
+        document.getElementById("sort-num1").value = "";
+        document.getElementById("sort-num2").value = "";
+        document.getElementById("sort-num3").value = "";
+        document.getElementById("sort-result").value = "";
+    }
+};
+
+const BiggestNumber = {
+    find: function () {
+        const a = parseFloat(document.getElementById("big-num1").value);
+        const b = parseFloat(document.getElementById("big-num2").value);
+        const c = parseFloat(document.getElementById("big-num3").value);
+        let result = "";
+
+        if (isNaN(a) || isNaN(b) || isNaN(c)) {
+            result = "Enter all numbers";
+        } else if (a == b && b == c) {
+            result = `All equal to ${a}`;
+        } else if (a === b && a > c) {
+            result = `a & b equal (${a}) > c`;
+        } else if (b === c && b > a) {
+            result = `b & c equal (${b}) > a`;
+        } else if (c === a && a > b) {
+            result = `c & a equal (${c}) > b`;
+        } else if (a > b && a > c) {
+            result = `a (${a}) is biggest`;
+        } else if (c > a && c > b) {
+            result = `c (${c}) is biggest`;
+        } else if (b > c && b > a) {
+            result = `b (${b}) is biggest`;
+        }
+
+        document.getElementById("big-result").value = result;
     }
 };
 

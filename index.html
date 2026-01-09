@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unified Calculator App</title>
+    <title>Multi-Function Calculator</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
 
     <div class="app-container">
         <header>
-            <h1>Unified Calculator</h1>
+            <h1>Multi-Function Calculator</h1>
         </header>
 
         <nav class="tabs">
@@ -113,24 +113,68 @@
                 </div>
             </section>
 
-            <!-- Placeholders for other sections if needed, or implement them if they were in the original but hidden/broken. 
-                 The original unified_app.html had tabs for average, number-sorter, biggest-number but NO corresponding sections in the HTML body I saw.
-                 I will add placeholder sections for them so the tabs don't break logic, or I can hide them. 
-                 Wait, I checked the view_file output, unified_app.html lines 205-212 listed tabs, but lines 216-289 only had mini-calc, factorial, and mass-converter.
-                 There was a gap at line 252.
-                 I will include placeholders to avoid errors.
-            -->
+            <!-- Average Calculator Section -->
             <section id="average" class="calc-section hidden">
                 <h2>Average Calculator</h2>
-                <p class="placeholder-text">Coming soon...</p>
+                <div class="input-group">
+                    <label>Enter 4 Numbers</label>
+                    <input type="number" id="avg-num1" placeholder="Number 1">
+                    <input type="number" id="avg-num2" placeholder="Number 2">
+                    <input type="number" id="avg-num3" placeholder="Number 3">
+                    <input type="number" id="avg-num4" placeholder="Number 4">
+                </div>
+                <div class="btn-group">
+                    <button id="avg-calc-btn" class="primary-btn">Calculate Average</button>
+                    <button id="avg-clear-btn" class="btn-clear">Clear</button>
+                </div>
+                <div class="result-group">
+                    <label>Result</label>
+                    <input type="text" id="avg-result" readonly placeholder="---">
+                </div>
             </section>
+
+            <!-- Number Sorter Section -->
             <section id="number-sorter" class="calc-section hidden">
                 <h2>Number Sorter</h2>
-                <p class="placeholder-text">Coming soon...</p>
+                <div class="input-group">
+                    <label>Enter 3 Numbers</label>
+                    <input type="number" id="sort-num1" placeholder="Number 1">
+                    <input type="number" id="sort-num2" placeholder="Number 2">
+                    <input type="number" id="sort-num3" placeholder="Number 3">
+                </div>
+                <div class="input-group">
+                    <label>Sort Order</label>
+                    <select id="sort-order">
+                        <option value="asc">Ascending</option>
+                        <option value="des">Descending</option>
+                    </select>
+                </div>
+                <div class="btn-group">
+                    <button id="sort-btn" class="primary-btn">Sort</button>
+                    <button id="sort-clear-btn" class="btn-clear">Clear</button>
+                </div>
+                <div class="result-group">
+                    <label>Result</label>
+                    <input type="text" id="sort-result" readonly placeholder="---">
+                </div>
             </section>
+
+            <!-- Biggest Number Section -->
             <section id="biggest-number" class="calc-section hidden">
-                <h2>Biggest Number</h2>
-                <p class="placeholder-text">Coming soon...</p>
+                <h2>Biggest Number Finder</h2>
+                <div class="input-group">
+                    <label>Enter 3 Numbers</label>
+                    <input type="number" id="big-num1" placeholder="Number 1 (a)">
+                    <input type="number" id="big-num2" placeholder="Number 2 (b)">
+                    <input type="number" id="big-num3" placeholder="Number 3 (c)">
+                </div>
+                <div class="btn-group">
+                    <button id="big-btn" class="primary-btn full-width">Compare</button>
+                </div>
+                <div class="result-group">
+                    <label>Result</label>
+                    <input type="text" id="big-result" readonly placeholder="---">
+                </div>
             </section>
 
         </main>
