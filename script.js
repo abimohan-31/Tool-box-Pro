@@ -52,11 +52,10 @@ const App = {
             }
         });
 
-        // Factorial Form
-        const factorialForm = document.getElementById('factorial-form');
-        if (factorialForm) {
-            factorialForm.addEventListener('submit', (e) => {
-                e.preventDefault();
+        // Factorial Button
+        const factorialBtn = document.getElementById('fc-submit');
+        if (factorialBtn) {
+            factorialBtn.addEventListener('click', () => {
                 FactorialCalc.calculate();
             });
         }
