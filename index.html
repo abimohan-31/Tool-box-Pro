@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unified Calculator App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="app-container">
+        <header>
+            <h1>Unified Calculator</h1>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-btn active" data-target="mini-calc">Mini Calc</button>
+            <button class="tab-btn" data-target="factorial">Factorial</button>
+            <button class="tab-btn" data-target="mass-converter">Converter</button>
+            <button class="tab-btn" data-target="average">Average</button>
+            <button class="tab-btn" data-target="number-sorter">Sorter</button>
+            <button class="tab-btn" data-target="biggest-number">Biggest</button>
+        </nav>
+
+        <main>
+            <!-- Mini Calculator Section -->
+            <section id="mini-calc" class="calc-section active">
+                <h2>Mini Calculator</h2>
+                <div class="input-group">
+                    <input type="number" id="mc-num1" placeholder="Number 1">
+                    <input type="number" id="mc-num2" placeholder="Number 2">
+                </div>
+                <div class="btn-group grid-buttons">
+                    <button data-action="add" class="op-btn">+</button>
+                    <button data-action="sub" class="op-btn">-</button>
+                    <button data-action="mul" class="op-btn">×</button>
+                    <button data-action="div" class="op-btn">÷</button>
+                    <button data-action="clear" class="btn-clear full-width">Clear</button>
+                </div>
+                <div class="result-group">
+                    <label>Result</label>
+                    <input type="text" id="mc-result" readonly placeholder="---">
+                </div>
+            </section>
+
+            <!-- Factorial Section -->
+            <section id="factorial" class="calc-section hidden">
+                <h2>Factorial Calculator</h2>
+                <form id="factorial-form">
+                    <div class="input-group">
+                        <label for="fc-num">Enter a number</label>
+                        <input type="number" id="fc-num" min="0" placeholder="e.g. 5">
+                    </div>
+                    <div class="btn-group">
+                        <button type="submit" class="primary-btn full-width">Calculate Factorial</button>
+                    </div>
+                </form>
+                <div class="result-group">
+                    <label>Result</label>
+                    <input type="text" id="fc-result" readonly placeholder="---">
+                </div>
+            </section>
+
+            <!-- Mass Converter Section -->
+            <section id="mass-converter" class="calc-section hidden">
+                <h2>Mass Converter</h2>
+                <div class="input-group">
+                    <label for="msc-amount">Amount</label>
+                    <input type="number" id="msc-amount" placeholder="Enter amount">
+                </div>
+                <div class="converter-grid">
+                    <div class="input-group">
+                        <label>From</label>
+                        <select id="msc-from">
+                            <option value="1">Kilogram</option>
+                            <option value="1000">Gram</option>
+                            <option value="1000000">Milligram</option>
+                            <option value="0.001">Tonne</option>
+                            <option value="2.20462">Pound</option>
+                            <option value="35.274">Ounce</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>To</label>
+                        <select id="msc-to">
+                            <option value="1">Kilogram</option>
+                            <option value="1000">Gram</option>
+                            <option value="1000000">Milligram</option>
+                            <option value="0.001">Tonne</option>
+                            <option value="2.20462">Pound</option>
+                            <option value="35.274">Ounce</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <button id="msc-convert-btn" class="primary-btn full-width">Convert</button>
+                </div>
+                <div class="result-group">
+                    <label>Result</label>
+                    <input type="text" id="msc-result" readonly placeholder="---">
+                </div>
+            </section>
+
+            <!-- Placeholders for other sections if needed, or implement them if they were in the original but hidden/broken. 
+                 The original unified_app.html had tabs for average, number-sorter, biggest-number but NO corresponding sections in the HTML body I saw.
+                 I will add placeholder sections for them so the tabs don't break logic, or I can hide them. 
+                 Wait, I checked the view_file output, unified_app.html lines 205-212 listed tabs, but lines 216-289 only had mini-calc, factorial, and mass-converter.
+                 There was a gap at line 252.
+                 I will include placeholders to avoid errors.
+            -->
+            <section id="average" class="calc-section hidden">
+                <h2>Average Calculator</h2>
+                <p class="placeholder-text">Coming soon...</p>
+            </section>
+            <section id="number-sorter" class="calc-section hidden">
+                <h2>Number Sorter</h2>
+                <p class="placeholder-text">Coming soon...</p>
+            </section>
+            <section id="biggest-number" class="calc-section hidden">
+                <h2>Biggest Number</h2>
+                <p class="placeholder-text">Coming soon...</p>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
